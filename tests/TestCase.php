@@ -1,6 +1,6 @@
 <?php
 
-namespace trntv\filekit\tests;
+namespace mpirogov\filekit\tests;
 
 use yii\di\Container;
 use yii\helpers\ArrayHelper;

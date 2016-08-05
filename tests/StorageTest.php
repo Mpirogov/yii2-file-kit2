@@ -1,8 +1,8 @@
 <?php
 
-namespace trntv\filekit\tests;
+namespace mpirogov\filekit\tests;
 
-use trntv\filekit\Storage;
+use mpirogov\filekit\Storage;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
@@ -13,7 +13,7 @@ class StorageTest extends TestCase
     {
         $storage = new Storage([
             'filesystem' => [
-                'class' => 'trntv\filekit\tests\data\TmpFilesystemBuilder'
+                'class' => 'mpirogov\filekit\tests\data\TmpFilesystemBuilder'
             ]
         ]);
 

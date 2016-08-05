@@ -1,16 +1,16 @@
 <?php
-namespace trntv\filekit;
+namespace mpirogov\filekit;
 
 use Yii;
 use League\Flysystem\FilesystemInterface;
-use trntv\filekit\events\StorageEvent;
-use trntv\filekit\filesystem\FilesystemBuilderInterface;
+use mpirogov\filekit\events\StorageEvent;
+use mpirogov\filekit\filesystem\FilesystemBuilderInterface;
 use yii\base\Component;
 use yii\base\InvalidConfigException;
 
 /**
  * Class Storage
- * @package trntv\filekit
+ * @package mpirogov\filekit
  * @author Eugene Terentev <eugene@terentev.net>
  */
 class Storage extends Component
@@ -208,7 +208,7 @@ class Storage extends Component
      */
     public function beforeSave($path, $filesystem = null)
     {
-        /* @var \trntv\filekit\events\StorageEvent $event */
+        /* @var \mpirogov\filekit\events\StorageEvent $event */
         $event = Yii::createObject([
             'class' => StorageEvent::className(),
             'path' => $path,
@@ -224,7 +224,7 @@ class Storage extends Component
      */
     public function afterSave($path, $filesystem)
     {
-        /* @var \trntv\filekit\events\StorageEvent $event */
+        /* @var \mpirogov\filekit\events\StorageEvent $event */
         $event = Yii::createObject([
             'class' => StorageEvent::className(),
             'path' => $path,
@@ -240,7 +240,7 @@ class Storage extends Component
      */
     public function beforeDelete($path, $filesystem)
     {
-        /* @var \trntv\filekit\events\StorageEvent $event */
+        /* @var \mpirogov\filekit\events\StorageEvent $event */
         $event = Yii::createObject([
             'class' => StorageEvent::className(),
             'path' => $path,
@@ -256,7 +256,7 @@ class Storage extends Component
      */
     public function afterDelete($path, $filesystem)
     {
-        /* @var \trntv\filekit\events\StorageEvent $event */
+        /* @var \mpirogov\filekit\events\StorageEvent $event */
         $event = Yii::createObject([
             'class' => StorageEvent::className(),
             'path' => $path,

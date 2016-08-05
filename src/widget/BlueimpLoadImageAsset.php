@@ -1,5 +1,5 @@
 <?php
-namespace trntv\filekit\widget;
+namespace mpirogov\filekit\widget;
 
 use yii\web\AssetBundle;
 

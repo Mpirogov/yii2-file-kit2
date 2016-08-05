@@ -1,5 +1,5 @@
 <?php
-namespace trntv\filekit\widget;
+namespace mpirogov\filekit\widget;
 
 use yii\web\AssetBundle;
 
@@ -22,6 +22,6 @@ class BlueimpFileuploadAsset extends AssetBundle
 
     public $depends = [
         'yii\web\JqueryAsset',
-        'trntv\filekit\widget\BlueimpLoadImageAsset'
+        'mpirogov\filekit\widget\BlueimpLoadImageAsset'
     ];
 }

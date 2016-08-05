@@ -1,9 +1,9 @@
 <?php
-namespace trntv\filekit\filesystem;
+namespace mpirogov\filekit\filesystem;
 
 /**
  * Interface FilesystemBuilderInterface
- * @package trntv\filekit\filesystem
+ * @package mpirogov\filekit\filesystem
  */
 interface FilesystemBuilderInterface
 {

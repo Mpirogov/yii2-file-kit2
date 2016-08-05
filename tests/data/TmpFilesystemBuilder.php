@@ -1,9 +1,9 @@
 <?php
-namespace trntv\filekit\tests\data;
+namespace mpirogov\filekit\tests\data;
 
 use League\Flysystem\Adapter\Local;
 use League\Flysystem\Filesystem;
-use trntv\filekit\filesystem\FilesystemBuilderInterface;
+use mpirogov\filekit\filesystem\FilesystemBuilderInterface;
 
 /**
  * @author Eugene Terentev <eugene@terentev.net>
