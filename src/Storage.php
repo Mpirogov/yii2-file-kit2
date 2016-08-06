@@ -38,6 +38,10 @@ class Storage extends Component
     /**
      * @var
      */
+    public $targetDir;
+    /**
+     * @var
+     */
     public $filesystemComponent;
     /**
      * @var
@@ -88,6 +92,13 @@ class Storage extends Component
     {
         $this->filesystem = $filesystem;
     }
+    /**
+     * @param $targetDirName
+     */
+    public function setTargetDir($targetDirName)
+    {
+        $this->targetDir = $targetDirName."/";
+    }
 
     /**
      * @param $file string|\yii\web\UploadedFile
@@ -108,11 +119,11 @@ class Storage extends Component
                     Yii::$app->security->generateRandomString(),
                     $fileObj->getExtension()
                 ]);
-                $path = implode('/', [$dirIndex, $filename]);
+                $path = $this->targetDir.implode('/', [$dirIndex, $filename]);
             } while ($this->getFilesystem()->has($path));
         } else {
             $filename = $fileObj->getPathInfo('filename');
-            $path = implode('/', [$dirIndex, $filename]);
+            $path = $this->targetDir.implode('/', [$dirIndex, $filename]);
         }
 
         $this->beforeSave($fileObj->getPath(), $this->getFilesystem());
@@ -186,15 +197,15 @@ class Storage extends Component
      */
     protected function getDirIndex()
     {
-        if (!$this->getFilesystem()->has('.dirindex')) {
-            $this->getFilesystem()->write('.dirindex', (string) $this->dirindex);
+        if (!$this->getFilesystem()->has($this->targetDir.'.dirindex')) {
+            $this->getFilesystem()->write($this->targetDir.'.dirindex', (string) $this->dirindex);
         } else {
-            $this->dirindex = $this->getFilesystem()->read('.dirindex');
+            $this->dirindex = $this->getFilesystem()->read($this->targetDir.'.dirindex');
             if ($this->maxDirFiles !== -1) {
                 $filesCount = count($this->getFilesystem()->listContents($this->dirindex));
                 if ($filesCount > $this->maxDirFiles) {
                     $this->dirindex++;
-                    $this->getFilesystem()->put('.dirindex', (string) $this->dirindex);
+                    $this->getFilesystem()->put($this->targetDir.'.dirindex', (string) $this->dirindex);
                 }
             }
         }

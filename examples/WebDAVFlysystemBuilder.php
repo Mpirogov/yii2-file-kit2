@@ -17,7 +17,7 @@ class WebDAVFlysystemBuilder implements FilesystemBuilderInterface
     public function build()
     {
 
-        \yii\base\Event::on(\mpirogov\filekit\Storage::className(), \trntv\filekit\Storage::EVENT_BEFORE_SAVE, function ($event) {
+        \yii\base\Event::on(\mpirogov\filekit\Storage::className(), \mpirogov\filekit\Storage::EVENT_BEFORE_SAVE, function ($event) {
             /** @var \mpirogov\filekit\Storage $storage */
             $storage = $event->sender;
 

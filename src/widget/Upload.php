@@ -66,6 +66,11 @@ class Upload extends InputWidget
     public $messagesCategory = 'filekit/widget';
 
     /**
+     * @var string regexp
+     */
+    public $targetDir;
+    
+    /**
      * @throws \yii\base\InvalidConfigException
      */
     public function init()
@@ -90,6 +95,10 @@ class Upload extends InputWidget
         if (!array_key_exists('fileparam', $this->url)) {
             $this->url['fileparam'] = $this->getFileInputName();
         }
+        if (!array_key_exists('targetDir', $this->url)) {
+            $this->url['targetDir'] = $this->targetDir;
+        }
+
         if (!$this->files && $this->value) {
             $this->files = $this->multiple ? $this->value : [$this->value];
         }
